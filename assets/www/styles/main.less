@@ -1,0 +1,84 @@
+@import "../../node_modules/bootstrap/less/bootstrap";
+
+@padding: 15px;
+@bannerHeight: @padding * 5;
+@contentFont: Georgia, serif;
+@metaFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+html, body {
+  margin:0;
+  padding:0;
+  border:0;
+  width:100%;
+  height:100%;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  font-family: @contentFont;
+}
+
+[ng-cloak] {
+  display: none;
+}
+
+
+.container {
+  height: 100%;
+  width:100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+Animation classes for top-level ng-view
+*/
+.page-enter-left, .page-enter-right, .page-leave-left, .page-leave-right {
+  -webkit-transition:all linear 0.3s;
+  position: absolute;
+}
+
+.page-enter-left {
+  left: -100% !important;
+  right: auto !important;
+
+  &.page-enter-left-active {
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+.page-leave-right, .page-leave-left {
+  left: 0 !important;
+  right: auto !important;
+
+  &.page-leave-right-active {
+    left: 100% !important;
+    right: auto !important;
+  }
+
+  &.page-leave-left-active {
+    left: -100% !important;
+    right: auto !important;
+  }
+}
+
+.page-enter-right {
+  left: 100% !important;
+  right: auto !important;
+
+  &.page-enter-right-active {
+    left: 0 !important;
+    right: auto !important;
+  }
+}
+
+@import "controller/FeedList";
+@import "controller/ArticleDetail";
+@import "directive/ioArticlePreview";
+@import "directive/ioAddFeedForm";
+@import "directive/rnAngularCarousel";

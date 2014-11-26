@@ -1,0 +1,103 @@
+io-add-feed-form {
+  @formHeight: 160px;
+  color: @gray;
+  /* General Styles */
+  .add-feed {
+    
+    cursor: pointer;
+    background: @grayLighter;
+    font-family: @metaFont;
+    padding: @padding;
+    height: 50 - @padding * 2;
+    font-weight: bold;
+
+    .name {
+      font-size: 110%;
+      line-height: 125%;
+    }
+  }
+  .add-feed-form {
+    min-height: @formHeight;
+    padding: @padding;
+    background-color: @grayLighter;
+    font-family: @metaFont;
+    
+    input[type=text] {
+      width: 100%;
+      height: 28px;
+      box-sizing: border-box;
+    }
+
+    h4 {
+      font-size: 110%;
+      margin-top: 0;
+    }
+  }
+
+  .form-show {
+    overflow: hidden;
+    padding: 0 @padding;
+    height: 0;
+    min-height: 0;
+
+    -webkit-transition:0.25s linear all;
+    -moz-transition:0.25s linear all;
+    -o-transition:0.25s linear all;
+    transition:0.25s linear all;
+  }
+
+  .form-show-active {
+    height: @formHeight;
+    min-height: 0;
+    padding: @padding;
+  }
+
+  .form-hide {
+    height: @formHeight;
+    min-height: 0;
+    padding: @padding;
+
+    -webkit-transition:0.25s linear all;
+    -moz-transition:0.25s linear all;
+    -o-transition:0.25s linear all;
+    transition:0.25s linear all;
+  }
+
+  .form-hide-active {
+    overflow: hidden;
+    padding: 0 @padding;
+    height: 0;;
+  }
+
+
+  .add-hide, .add-show  {
+    -webkit-transition:0.25s linear all;
+    -moz-transition:0.25s linear all;
+    -o-transition:0.25s linear all;
+    transition:0.25s linear all;
+    min-height: 0;
+  }
+
+  .add-hide {
+    height: 28px;
+    overflow: hidden;
+    padding: @padding;
+  }
+  .add-hide-active {
+    height: 0;
+    line-height: 0;
+    padding: 0 @padding;
+  }
+
+  .add-show {
+    height: 0;
+    line-height: 0;
+    padding: 0 @padding;
+  }
+
+  .add-show-active {
+    height: 28px;
+    overflow: hidden;
+    padding: @padding;
+  }
+}

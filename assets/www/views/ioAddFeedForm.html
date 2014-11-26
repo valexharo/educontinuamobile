@@ -1,0 +1,69 @@
+<div class="add-feed feed-box"
+  ng-click="newFeed = {}"
+  ng-show="!newFeed"
+  ng-animate="{show: 'add-show', hide: 'add-hide'} ">
+
+  <span class="name">
+    <i class="icon-plus"></i>
+    Add Atom Feed
+  </span>
+</div>
+
+<div class="add-feed-form"
+  ng-show="newFeed"
+  ng-animate=" 'form' ">
+
+  <h4>Add Atom Feed</h4>
+  <form class="form" name="newFeedForm" 
+    ng-submit="saveFeed()">
+
+    <div class="control-group"
+      ng-class="{error: newFeedForm.name.$error.required && newFeedForm.name.$dirty }">
+
+      <div class="controls">
+        <input type="text" class="input-medium" name="name" id="inputFeedName" placeholder="Feed Name"
+          ng-required="true"
+          ng-model="newFeed.name"
+          list="atomSources">
+        
+        <datalist id="atomSources">
+          <option ng-repeat="(name, href) in sources" value="{{ name }}"></option>
+        </datalist>
+
+        <label class="help-inline" for="inputFeedName" 
+          ng-show="newFeedForm.name.$error.required && newFeedForm.name.$dirty">
+          Required
+        </label>
+      </div>
+    </div>
+    <div class="control-group" 
+      ng-class="{error: (newFeedForm.href.$error.required || newFeedForm.href.$error.pattern) && newFeedForm.href.$dirty }">
+
+      <div class="controls">
+        <input type="text" id="inputFeedHref" name="href" placeholder="Feed URL"  class="input-medium"
+          ng-model="newFeed.href" 
+          ng-required="true"
+          ng-pattern="/^(http)+s?:\/\/.+$/">
+        
+        <label class="help-inline" for="inputFeedHref"
+          ng-show="newFeedForm.href.$error.required && newFeedForm.href.$dirty">
+          Required
+        </label>
+        <label class="help-inline" for="inputFeedHref"
+          ng-show="newFeedForm.href.$error.pattern && newFeedForm.href.$dirty">
+          Invalid
+        </label>
+      </div>
+    </div>
+    
+    <input type="hidden" value="img/rss.png" 
+      ng-model="newFeed.icon">
+
+    <input class="btn btn-primary" type="submit" value="Save"
+      ng-disabled="newFeedForm.$invalid">
+
+    <a class="btn" ng-click="newFeed = undefined">
+      Cancel
+    </a>
+  </form>
+</div>
